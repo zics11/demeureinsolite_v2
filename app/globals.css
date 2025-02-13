@@ -2,20 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --radius: 0.5rem;
+    --background: #584910;
+    --foreground: #927a1a;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* styles/globals.css */
+
+.custom-icon {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* Assurez-vous que le conteneur prend toute la largeur disponible */
+}
+
+.responsive-image {
+  width: 100% !important; /* Force l'image à prendre toute la largeur du conteneur */
+  height: auto !important; /* Conserve les proportions de l'image */
 }
