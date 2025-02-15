@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Header from '@/components/section/header';
+import Formulaire from '@/components/section/formulaire';
 import {
   Carousel,
   CarouselContent,
@@ -7,7 +8,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Sparkles, DoorOpen } from 'lucide-react';
+import {
+  Sparkles,
+  DoorOpen,
+  HouseWifi,
+  BedDouble,
+  FlameKindling,
+} from 'lucide-react';
 
 export default function Home() {
   return (
@@ -247,18 +254,21 @@ export default function Home() {
             <p className=" text-xl"> Arrivée autonome</p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
-            <DoorOpen size={90} strokeWidth={2} />
-            <p className=" text-xl"> Arrivée autonome</p>
+            <HouseWifi size={90} strokeWidth={2} />
+            <p className=" text-xl">Wifi rapide</p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
-            <DoorOpen size={90} strokeWidth={2} />
-            <p className=" text-xl"> Arrivée autonome</p>
+            <BedDouble size={90} strokeWidth={2} />
+            <p className=" text-xl">Draps et serviettes fournis</p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
-            <DoorOpen size={90} strokeWidth={2} />
-            <p className=" text-xl"> Arrivée autonome</p>
+            <FlameKindling size={90} strokeWidth={2} />
+            <p className=" text-xl">Barbecue ou plancha</p>
           </div>
         </div>
+      </section>
+      <section>
+        <Formulaire></Formulaire>
       </section>
     </div>
   );
