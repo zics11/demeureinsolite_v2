@@ -28,10 +28,9 @@ const Formulaire = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -42,10 +41,25 @@ const Formulaire = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ajoutez ici la logique pour soumettre le formulaire, par exemple, envoyer les données à un serveur
-    console.log('Form data submitted:', formData);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ formData }),
+      });
+
+      if (response.ok) {
+        console.log('Email envoyé avec succès');
+      } else {
+        console.error("Erreur lors de l'envoi de l'email");
+      }
+    } catch (error) {
+      console.error('Erreur réseau:', error);
+    }
   };
 
   return (
@@ -62,6 +76,7 @@ const Formulaire = () => {
           onChange={(date) => handleDateChange(date, 'departureDate')}
         />
       </div>
+
       <Select
         name="house"
         value={formData.house}
@@ -75,60 +90,60 @@ const Formulaire = () => {
         <SelectContent>
           <SelectItem value="house1">Maison 1</SelectItem>
           <SelectItem value="house2">Maison 2</SelectItem>
-          {/* Ajoutez d'autres maisons ici */}
         </SelectContent>
       </Select>
 
       <div className="flex space-x-4">
         <Input
-          label="Prénom"
           name="firstName"
+          placeholder="Prénom"
           value={formData.firstName}
           onChange={handleChange}
           aria-label="Prénom"
         />
         <Input
-          label="Nom"
           name="lastName"
+          placeholder="Nom"
           value={formData.lastName}
           onChange={handleChange}
           aria-label="Nom"
         />
       </div>
+
       <Input
-        label="Adresse"
         name="address"
+        placeholder="Adresse"
         value={formData.address}
         onChange={handleChange}
         aria-label="Adresse"
       />
       <Input
-        label="Email"
-        type="email"
         name="email"
+        type="email"
+        placeholder="Email"
         value={formData.email}
         onChange={handleChange}
         aria-label="Email"
       />
       <Input
-        label="Téléphone"
-        type="tel"
         name="phone"
+        type="tel"
+        placeholder="Téléphone"
         value={formData.phone}
         onChange={handleChange}
         aria-label="Téléphone"
       />
       <Input
-        label="Nombre de personnes"
-        type="number"
         name="numberOfPeople"
+        type="number"
+        placeholder="Nombre de personnes"
         value={formData.numberOfPeople}
         onChange={handleChange}
         aria-label="Nombre de personnes"
       />
       <Textarea
-        label="Message (si besoin)"
         name="message"
+        placeholder="Message (si besoin)"
         value={formData.message}
         onChange={handleChange}
         aria-label="Message"
