@@ -14,33 +14,39 @@ const mg = mailgun.client({
 export async function POST(request) {
   const { formData } = await request.json();
 
+  console.log('🔍 Données reçues:', formData); // Ajout du log
+
   const emailData = {
     from: 'Réservation en direct demeeureinsolite.fr <mailgun@sandbox1c6bb2f9e7da41cc9b7bb8f1b9f75fba.mailgun.org>', // Change this to your Mailgun verified email
     to: ['demeureinsolite@gmail.com'], // Destination email
     subject: '✅ Nouvelle réservation depuis demeeureinsolite.fr',
     text: `
-      Date d'arrivée: ${formData.arrivalDate}
-      Date de départ: ${formData.departureDate}
-      Maison: ${formData.house}
-      Prénom: ${formData.firstName}
-      Nom: ${formData.lastName}
-      Adresse: ${formData.address}
-      Email: ${formData.email}
-      Téléphone: ${formData.phone}
-      Nombre de personnes: ${formData.numberOfPeople}
-      Message: ${formData.message}
-    `,
+    Date d'arrivée: ${formData.arrivalDate}
+    Date de départ: ${formData.departureDate}
+    Maison: ${formData.house}
+    Prénom: ${formData.firstName}
+    Nom: ${formData.lastName}
+    Adresse: ${formData.address}
+    Email: ${formData.email}
+    Téléphone: ${formData.phone}
+    Nombre d'adultes: ${formData.numberOfPeople}
+    Nombre d'enfants: ${formData.numberOfChildren}
+    Animaux: ${formData.pets ? 'Oui' : 'Non'}
+    Message: ${formData.message}
+  `,
     html: `<h1>Nouvelle réservation</h1>
-           <p>Date d'arrivée: ${formData.arrivalDate}</p>
-           <p>Date de départ: ${formData.departureDate}</p>
-           <p>Maison: ${formData.house}</p>
-           <p>Prénom: ${formData.firstName}</p>
-           <p>Nom: ${formData.lastName}</p>
-           <p>Adresse: ${formData.address}</p>
-           <p>Email: ${formData.email}</p>
-           <p>Téléphone: ${formData.phone}</p>
-           <p>Nombre de personnes: ${formData.numberOfPeople}</p>
-           <p>Message: ${formData.message}</p>`,
+  <p>Date d'arrivée: ${formData.arrivalDate}</p>
+  <p>Date de départ: ${formData.departureDate}</p>
+  <p>Maison: ${formData.house}</p>
+  <p>Prénom: ${formData.firstName}</p>
+  <p>Nom: ${formData.lastName}</p>
+  <p>Adresse: ${formData.address}</p>
+  <p>Email: ${formData.email}</p>
+  <p>Téléphone: ${formData.phone}</p>
+  <p>Nombre d'adultes: ${formData.numberOfPeople}</p>
+  <p>Nombre d'enfants: ${formData.numberOfChildren}</p>
+  <p>Animaux: ${formData.pets ? 'Oui' : 'Non'}</p>
+  <p>Message: ${formData.message}</p>`,
   };
 
   try {
