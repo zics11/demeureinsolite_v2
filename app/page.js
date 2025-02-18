@@ -267,7 +267,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
+      <section className=" px-24">
         <Formulaire></Formulaire>
       </section>
     </div>

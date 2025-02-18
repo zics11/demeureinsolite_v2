@@ -31,7 +31,7 @@ export async function POST(request) {
     Téléphone: ${formData.phone}
     Nombre d'adultes: ${formData.numberOfPeople}
     Nombre d'enfants: ${formData.numberOfChildren}
-    Animaux: ${formData.pets ? 'Oui' : 'Non'}
+    Animaux: ${formData.pets}
     Message: ${formData.message}
   `,
     html: `<h1>Nouvelle réservation</h1>
@@ -45,7 +45,7 @@ export async function POST(request) {
   <p>Téléphone: ${formData.phone}</p>
   <p>Nombre d'adultes: ${formData.numberOfPeople}</p>
   <p>Nombre d'enfants: ${formData.numberOfChildren}</p>
-  <p>Animaux: ${formData.pets ? 'Oui' : 'Non'}</p>
+  <p>Animaux: ${formData.pets}</p>
   <p>Message: ${formData.message}</p>`,
   };
 
