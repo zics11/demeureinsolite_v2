@@ -121,7 +121,7 @@ const Formulaire = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-16">
       <div className=" flex flex-row gap-3">
         <div className=" flex flex-col gap-3 w-1/2">
           <div className="flex gap-3 ">
@@ -241,11 +241,11 @@ const Formulaire = () => {
         </div>
       </div>
       <div className=" flex flex-row gap-3 items-center">
-        <Button type="submit" className=" w-1/2">
-          Réserver
+        <Button type="submit" size="m" className=" w-1/2">
+          Demande de réservation
         </Button>
         <p
-          className={`text-sm font-semibold w-1/2 
+          className={`text-base font-semibold w-1/2 text-center 
   ${errorMessage ? 'text-red-500' : successMessage ? 'text-green-500' : 'text-gray-500'}`}
         >
           {errorMessage || successMessage || ''}

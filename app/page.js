@@ -14,6 +14,9 @@ import {
   HouseWifi,
   BedDouble,
   FlameKindling,
+  CreditCard,
+  LockKeyhole,
+  HandCoins,
 } from 'lucide-react';
 
 export default function Home() {
@@ -289,7 +292,35 @@ export default function Home() {
         </p>
       </section>
       <section className=" px-24">
+        <h2 className=" text-5xl font-medium text-center">
+          Réserver ici, sans intermédiaire, sans comission et au
+          <span className=" text-foreground font-bold">
+            {' '}
+            meilleur prix garantie
+          </span>
+        </h2>
         <Formulaire></Formulaire>
+        <div className=" flex gap-6 my-12">
+          <div className=" flex flex-col items-center w-1/3 gap-3">
+            <CreditCard size={90} strokeWidth={2} />
+            <p className=" text-xl"> Paiement par carte</p>
+          </div>
+          <div className=" flex flex-col items-center w-1/3 gap-3">
+            <LockKeyhole size={90} strokeWidth={2} />
+            <p className=" text-xl">sécurisé</p>
+          </div>
+          <div className=" flex flex-col items-center w-1/3 gap-3">
+            <HandCoins size={90} strokeWidth={2} />
+            <p className=" text-xl">Meilleur prix garantie</p>
+          </div>
+        </div>
+      </section>
+      <section className=" flex gap-6 px-24 my-24 flex-col">
+        <h2 className=" text-5xl font-medium text-center">
+          Une question, une intérrogation , contactez nous
+        </h2>
+
+        <div className=" w-1/2"></div>
       </section>
     </div>
   );

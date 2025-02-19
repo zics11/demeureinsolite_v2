@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-stone-900 text-stone-50 hover:bg-stone-900/90 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90',
+          ' bg-background text-stone-50 hover:bg-foreground dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90',
         destructive: 'bg-background text-stone-50 hover:bg-foreground ',
         outline:
           'border border-stone-950 bg-white hover:bg-stone-100 hover:text-stone-900 dark:border-stone-800 dark:bg-stone-950 dark:hover:bg-stone-800 dark:hover:text-stone-50',
@@ -23,6 +23,7 @@ const buttonVariants = cva(
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
+        m: 'h-11 rounded-md px-5 text-xl font-medium',
         lg: 'h-12 rounded-md px-8 text-xl font-medium',
         icon: 'h-10 w-10',
       },
