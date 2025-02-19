@@ -11,7 +11,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { DatePicker } from '@/components/ui/DatePicker';
+import { DatePickerA } from '@/components/ui/DatePickerA';
+import { DatePickerD } from '@/components/ui/DatePickerD';
 import { format } from 'date-fns'; // Ajoute cette ligne en haut de ton fichier
 import { fr } from 'date-fns/locale'; // Pour garantir que la date soit formatée en français
 
@@ -27,6 +28,7 @@ const Formulaire = () => {
     phone: '',
     numberOfPeople: '',
     numberOfChildren: '',
+    numberOfBebe: '',
     pets: '',
     message: '',
   });
@@ -57,10 +59,11 @@ const Formulaire = () => {
     console.log(formData);
   };
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Vérifier si tous les champs obligatoires sont remplis
     if (
       !formData.arrivalDate ||
       !formData.departureDate ||
@@ -68,17 +71,17 @@ const Formulaire = () => {
       !formData.firstName ||
       !formData.lastName ||
       !formData.email ||
-      !formData.numberOfPeople || // Au moins 1 adulte
-      !formData.numberOfChildren // Pas de nombre négatif
+      !formData.numberOfPeople
     ) {
-      setErrorMessage('❌ Veuillez remplir tous les champs obligatoires.');
+      setErrorMessage(
+        '🛑 Veuillez remplir tous les champs avec un astérixe ( * ).',
+      );
+      setSuccessMessage(''); // Réinitialise le message de succès si une erreur apparaît
       return;
     }
 
-    // Réinitialiser le message d'erreur si tout est bon
     setErrorMessage('');
 
-    console.log('📩 Envoi des données:', formData);
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -88,11 +91,32 @@ const Formulaire = () => {
 
       if (response.ok) {
         console.log('✅ Email envoyé avec succès');
+        setSuccessMessage(
+          '✅ Le formulaire a été bien envoyé, nous reviendrons vers vous rapidement',
+        );
+        setFormData({
+          arrivalDate: '',
+          departureDate: '',
+          house: '',
+          firstName: '',
+          lastName: '',
+          address: '',
+          email: '',
+          phone: '',
+          numberOfPeople: '',
+          numberOfChildren: '',
+          pets: '',
+          message: '',
+        }); // Réinitialisation du formulaire
       } else {
         console.error('❌ Erreur lors de l’envoi');
+        setErrorMessage('❌ Une erreur est survenue lors de l’envoi.');
+        setSuccessMessage('');
       }
     } catch (error) {
       console.error('🌐 Erreur réseau:', error);
+      setErrorMessage('❌ Problème de connexion. Réessayez plus tard.');
+      setSuccessMessage('');
     }
   };
 
@@ -101,12 +125,12 @@ const Formulaire = () => {
       <div className=" flex flex-row gap-3">
         <div className=" flex flex-col gap-3 w-1/2">
           <div className="flex gap-3 ">
-            <DatePicker
+            <DatePickerA
               name="arrivalDate"
               value={formData.arrivalDate}
               onChange={(date) => handleDateChange(date, 'arrivalDate')}
             />
-            <DatePicker
+            <DatePickerD
               name="departureDate"
               value={formData.departureDate}
               onChange={(date) => handleDateChange(date, 'departureDate')}
@@ -121,7 +145,11 @@ const Formulaire = () => {
             }
           >
             <SelectTrigger>
-              <SelectValue placeholder="Maison" />
+              <span
+                className={formData.house ? 'text-black' : 'text-stone-500'}
+              >
+                {formData.house ? formData.house : 'Quelle maison *'}
+              </span>
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="house1">Maison 1</SelectItem>
@@ -132,14 +160,14 @@ const Formulaire = () => {
           <div className="flex gap-3">
             <Input
               name="firstName"
-              placeholder="Prénom"
+              placeholder="Prénom *"
               value={formData.firstName}
               onChange={handleChange}
               aria-label="Prénom"
             />
             <Input
               name="lastName"
-              placeholder="Nom"
+              placeholder="Nom *"
               value={formData.lastName}
               onChange={handleChange}
               aria-label="Nom"
@@ -172,18 +200,26 @@ const Formulaire = () => {
 
           <Input
             name="numberOfPeople"
-            placeholder="Nombre de personnes *"
+            placeholder="Nombre d'adultes *"
             value={formData.numberOfPeople}
             onChange={handleChange}
-            aria-label="Nombre de personnes"
+            aria-label="Nombre d'adultes"
           />
 
           <Input
             name="numberOfChildren"
-            placeholder="Nombre d'enfants *"
+            placeholder="Nombre d'enfants"
             value={formData.numberOfChildren}
             onChange={handleChange}
             aria-label="Nombre d'enfants"
+          />
+
+          <Input
+            name="numberOfBebe"
+            placeholder="Nombre de bébé"
+            value={formData.numberOfBebe}
+            onChange={handleChange}
+            aria-label="Nombre de bébé"
           />
 
           <Input
@@ -197,7 +233,7 @@ const Formulaire = () => {
         <div className=" flex flex-col mt-0 w-1/2 gap-3">
           <Textarea
             name="message"
-            placeholder="Message (si besoin)"
+            placeholder="Message"
             value={formData.message}
             onChange={handleChange}
             aria-label="Message"
@@ -208,9 +244,12 @@ const Formulaire = () => {
         <Button type="submit" className=" w-1/2">
           Réserver
         </Button>
-        {errorMessage && (
-          <p className="text-red-500 text-sm font-semibold w-1/2">{errorMessage}</p>
-        )}
+        <p
+          className={`text-sm font-semibold w-1/2 
+  ${errorMessage ? 'text-red-500' : successMessage ? 'text-green-500' : 'text-gray-500'}`}
+        >
+          {errorMessage || successMessage || ''}
+        </p>
       </div>
     </form>
   );

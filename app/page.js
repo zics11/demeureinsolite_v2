@@ -248,7 +248,7 @@ export default function Home() {
         <h2 className=" text-5xl font-medium text-center">
           Des maisons tout confort trés bien équipées
         </h2>
-        <div className=" flex gap-6 mt-12">
+        <div className=" flex gap-6 my-12">
           <div className=" flex flex-col items-center w-1/4 gap-3">
             <DoorOpen size={90} strokeWidth={2} />
             <p className=" text-xl"> Arrivée autonome</p>
@@ -266,6 +266,27 @@ export default function Home() {
             <p className=" text-xl">Barbecue ou plancha</p>
           </div>
         </div>
+        <p>
+          Évadez-vous au cœur du Languedoc, dans le Sud de la France, et
+          découvrez un monde où nature préservée et charme authentique se
+          rencontrent. Chez Demeure Insolite, nous vous proposons des
+          hébergements uniques en pleine nature, à deux pas de la Méditerranée.
+          <br></br> <br></br>Chaque demeure est conçue pour offrir une
+          expérience inoubliable, alliant confort moderne et ambiance
+          chaleureuse. Profitez de la diversité des loisirs qu'offre notre
+          région ensoleillée : détendez-vous sur les plages méditerranéennes,
+          explorez des villes historiques, ou partez en randonnée dans nos
+          magnifiques paysages.<br></br> <br></br>Découvrez également notre
+          remarquable cuisine locale et nos vins de classe mondiale, dans des
+          bistrots simples ou des restaurants étoilés au Michelin.<br></br>{' '}
+          <br></br>Plongez dans votre piscine ou détendez-vous dans notre
+          jacuzzi en admirant la vue magnifique.<br></br>
+          <br></br> Chez Demeure Insolite, chaque détail est pensé pour vous
+          offrir une expérience authentique et mémorable. Nous avons hâte de
+          vous accueillir et de vous faire découvrir toutes les merveilles de
+          notre belle région.<br></br>
+          <br></br> Bienvenue chez nous, bienvenue chez vous.
+        </p>
       </section>
       <section className=" px-24">
         <Formulaire></Formulaire>

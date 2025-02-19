@@ -17,9 +17,9 @@ export async function POST(request) {
   console.log('🔍 Données reçues:', formData); // Ajout du log
 
   const emailData = {
-    from: 'Réservation en direct demeeureinsolite.fr <mailgun@sandbox1c6bb2f9e7da41cc9b7bb8f1b9f75fba.mailgun.org>', // Change this to your Mailgun verified email
+    from: 'demeureinsolite.fr <mailgun@sandbox1c6bb2f9e7da41cc9b7bb8f1b9f75fba.mailgun.org>', // Change this to your Mailgun verified email
     to: ['demeureinsolite@gmail.com'], // Destination email
-    subject: '✅ Nouvelle réservation depuis demeeureinsolite.fr',
+    subject: '✅ Nouvelle demande depuis demeureinsolite.fr',
     text: `
     Date d'arrivée: ${formData.arrivalDate}
     Date de départ: ${formData.departureDate}
@@ -31,10 +31,11 @@ export async function POST(request) {
     Téléphone: ${formData.phone}
     Nombre d'adultes: ${formData.numberOfPeople}
     Nombre d'enfants: ${formData.numberOfChildren}
+    Nombre de bébé: ${formData.numberOfBebe}
     Animaux: ${formData.pets}
     Message: ${formData.message}
   `,
-    html: `<h1>Nouvelle réservation</h1>
+    html: `<h1>Nouvelle demande depuis demeureinsolite.fr</h1>
   <p>Date d'arrivée: ${formData.arrivalDate}</p>
   <p>Date de départ: ${formData.departureDate}</p>
   <p>Maison: ${formData.house}</p>
