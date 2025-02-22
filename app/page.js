@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Header from '@/components/section/header';
+import Footer from '@/components/section/footer';
+import Link from 'next/link';
+
 import Formulaire from '@/components/section/formulaire';
 import {
   Carousel,
@@ -17,13 +20,16 @@ import {
   CreditCard,
   LockKeyhole,
   HandCoins,
+  Phone,
+  Mail,
+  MapPinHouse,
 } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="max-w-custom mx-auto px-11">
+    <div className="">
       <Header></Header>
-      <div className="  px-36 my-24">
+      <div className="  max-w-custom mx-auto px-48 my-24">
         <h1 className=" text-6xl font-medium text-center">
           Vivez des séjours uniques en pleine nature, a deux pas de la mer
           méditerranée
@@ -51,7 +57,7 @@ export default function Home() {
           <br></br> Bienvenue chez nous, bienvenue chez vous.
         </p> */}
       </div>
-      <section className=" flex gap-6 px-24">
+      <section className=" flex gap-6 max-w-custom mx-auto px-36">
         <div className=" w-1/2">
           <Carousel>
             <CarouselContent>
@@ -149,7 +155,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" flex gap-6 px-24 mt-6">
+      <section className=" flex gap-6 max-w-custom mx-auto px-36 mt-6">
         <div className=" w-1/2">
           <Carousel>
             <CarouselContent>
@@ -247,7 +253,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" flex gap-6 px-24 my-24 flex-col">
+      <section className=" flex gap-6 max-w-custom mx-auto px-48 my-24 flex-col">
         <h2 className=" text-5xl font-medium text-center">
           Des maisons tout confort trés bien équipées
         </h2>
@@ -291,36 +297,67 @@ export default function Home() {
           <br></br> Bienvenue chez nous, bienvenue chez vous.
         </p>
       </section>
-      <section className=" px-24">
-        <h2 className=" text-5xl font-medium text-center">
-          Réserver ici, sans intermédiaire, sans comission et au
-          <span className=" text-foreground font-bold">
-            {' '}
-            meilleur prix garantie
-          </span>
-        </h2>
-        <Formulaire></Formulaire>
-        <div className=" flex gap-6 my-12">
-          <div className=" flex flex-col items-center w-1/3 gap-3">
-            <CreditCard size={90} strokeWidth={2} />
-            <p className=" text-xl"> Paiement par carte</p>
-          </div>
-          <div className=" flex flex-col items-center w-1/3 gap-3">
-            <LockKeyhole size={90} strokeWidth={2} />
-            <p className=" text-xl">sécurisé</p>
-          </div>
-          <div className=" flex flex-col items-center w-1/3 gap-3">
-            <HandCoins size={90} strokeWidth={2} />
-            <p className=" text-xl">Meilleur prix garantie</p>
+      <section className="bg-stone-100 py-12">
+        <div className="max-w-custom mx-auto px-36 ">
+          <h2 className=" text-5xl font-medium text-center px-12">
+            Réserver ici, sans intermédiaire, sans comission et au&nbsp;
+            <span className=" text-foreground font-bold">
+              meilleur prix garantie
+            </span>
+          </h2>
+          <Formulaire></Formulaire>
+          <div className=" flex gap-6 my-12">
+            <div className=" flex flex-col items-center w-1/3 gap-3">
+              <CreditCard size={90} strokeWidth={2} color="#584910" />
+              <p className=" text-xl text-background"> Paiement par carte</p>
+            </div>
+            <div className=" flex flex-col items-center w-1/3 gap-3">
+              <LockKeyhole size={90} strokeWidth={2} color="#584910" />
+              <p className=" text-xl text-background">sécurisé</p>
+            </div>
+            <div className=" flex flex-col items-center w-1/3 gap-3">
+              <HandCoins size={90} strokeWidth={2} color="#584910" />
+              <p className=" text-xl text-background">Meilleur prix garantie</p>
+            </div>
           </div>
         </div>
       </section>
-      <section className=" flex gap-6 px-24 my-24 flex-col">
-        <h2 className=" text-5xl font-medium text-center">
-          Une question, une intérrogation , contactez nous
+      <section className=" flex gap-6 max-w-custom mx-auto px-36 my-24 flex-col">
+        <h2 className=" text-5xl font-medium text-center px-12">
+          Une question, contactez nous directement
         </h2>
-
-        <div className=" w-1/2"></div>
+        <div className=" flex flex-row my-12">
+          <div className=" flex flex-col w-1/2 gap-6 justify-between">
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/33646282025">
+              <img
+                alt="Chat on WhatsApp"
+                width={300} // Remplacez par la largeur réelle de votre image en pixels
+                height={5}
+                src="WhatsAppButtonGreenSmall.png"
+              />
+            </a>
+            <div className=" flex flex-row text-lg font-semibold gap-3 items-center">
+              <Phone size={32} strokeWidth={2} />+ 33 6 46 28 20 25
+            </div>
+            <div className=" flex flex-row text-lg font-semibold gap-3 items-center">
+              <MapPinHouse size={32} strokeWidth={2} />
+              30 avenue de Narbonne - 11360 Durban-Corbières
+            </div>
+            <div className=" flex flex-row text-lg font-semibold gap-3 items-center">
+              <Mail size={32} strokeWidth={2} />
+              demeureinsolite@gmail.com
+            </div>
+          </div>
+          <iframe
+            width="100%"
+            height="300px"
+            className=" rounded-md w-1/2"
+            src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_1181187?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=false&editMode=disabled&moreControl=false&searchControl=false&tilelayersControl=false&embedControl=false&datalayersControl=false&onLoadPanel=none&captionBar=false&captionMenus=false&fullscreenControl=false&captionControl=false&locateControl=false&measureControl=false&editinosmControl=false&starControl=false"
+          ></iframe>
+        </div>
+      </section>
+      <section className=" bg-background ">
+        <Footer></Footer>
       </section>
     </div>
   );

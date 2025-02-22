@@ -4,7 +4,7 @@ import { HousePlus } from 'lucide-react';
 
 export default function Header() {
   return (
-    <div className=" flex flex-row py-5 justify-between ">
+    <div className=" flex flex-row py-5 max-w-custom mx-auto px-12 justify-between ">
       <Image
         className=""
         src="/demeureinsolite.png"
