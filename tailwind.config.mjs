@@ -14,6 +14,7 @@ export default {
       },
       maxWidth: {
         custom: '1440px',
+        custom2: '1340px',
       },
       borderRadius: {
         lg: 'var(--radius)',

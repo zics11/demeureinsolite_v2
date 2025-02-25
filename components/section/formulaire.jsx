@@ -121,7 +121,7 @@ const Formulaire = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-16">
+    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-12">
       <div className=" flex flex-row gap-3">
         <div className=" flex flex-col gap-3 w-1/2">
           <div className="flex gap-3 ">

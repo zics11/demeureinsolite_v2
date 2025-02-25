@@ -37,7 +37,7 @@ export default function MentionsLegales() {
 
         <h2 className="text-2xl font-semibold mt-6">2. Hébergement du site</h2>
         <p>
-          <strong>Hébergeur :</strong> Ursula Valiente
+          <strong>Hébergeur :</strong> Ursula Valiente Andreu
         </p>
         <p>
           <strong>Adresse :</strong> 30 avenue de Narbonne 11360
@@ -49,17 +49,17 @@ export default function MentionsLegales() {
 
         <h2 className="text-2xl font-semibold mt-6">3. Activité</h2>
         <p>
-          Demeure Insolite est une autoentreprise spécialisée dans la
-          <strong>location de gîte</strong>.
+          Demeure Insolite est une autoentreprise spécialisée dans la location
+          de gîte.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6">
           4. Propriété intellectuelle
         </h2>
         <p>
-          Tout le contenu du site <strong>demeureinsolite.fr</strong> (textes,
-          images, graphismes, logo, etc.) est protégé par les lois sur la
-          propriété intellectuelle.
+          Tout le contenu du site demeureinsolite.fr (textes, images,
+          graphismes, logo, etc.) est protégé par les lois sur la propriété
+          intellectuelle.
         </p>
         <p>
           Toute reproduction, même partielle, est interdite sans l’autorisation
@@ -68,9 +68,9 @@ export default function MentionsLegales() {
 
         <h2 className="text-2xl font-semibold mt-6">5. Données personnelles</h2>
         <p>
-          Conformément au <strong>RGPD</strong>, les informations collectées via
-          le site sont utilisées uniquement pour la gestion des réservations et
-          la communication avec les clients.
+          Conformément au RGPD, les informations collectées via le site sont
+          utilisées uniquement pour la gestion des réservations et la
+          communication avec les clients.
         </p>
         <p>
           L’utilisateur dispose d’un droit d’accès, de modification et de
@@ -97,8 +97,8 @@ export default function MentionsLegales() {
         <h2 className="text-2xl font-semibold mt-6">8. Droit applicable</h2>
         <p>
           Les présentes mentions légales sont soumises au droit français. En cas
-          de litige, les tribunaux compétents seront ceux du ressort de
-          l’autoentreprise.
+          de litige, les tribunaux compétents seront ceux du ressort de la
+          Micro-entreprise.
         </p>
       </div>
       <section className=" bg-background ">
