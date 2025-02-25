@@ -483,9 +483,9 @@ export default function Home() {
       >
         <div className=" bg-stone-100 p-6 md:p-12 rounded-md">
           <h2 className=" text-xl md:text-5xl font-medium text-center ">
-            Réserver ici, sans intermédiaire, sans comission et au&nbsp;
+            Réservez ici, sans intermédiaire, sans commission et au&nbsp;
             <span className=" text-foreground font-bold">
-              meilleur prix garantie
+              meilleur prix garanti
             </span>
           </h2>
           <Formulaire></Formulaire>
