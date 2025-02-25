@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="">
       <Header></Header>
-      <div className="  max-w-custom mx-auto px-48 my-24">
+      <div className="  max-w-custom mx-auto px-48 my-36">
         <h1 className=" text-6xl font-medium text-center">
           Vivez des séjours uniques en pleine nature, a deux pas de la mer
           méditerranée
@@ -41,8 +41,68 @@ export default function Home() {
             <CarouselContent>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/1/1.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/2.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/3.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/4.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/5.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/6.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/1/7.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -51,18 +111,8 @@ export default function Home() {
               </CarouselItem>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
-                  width={800} // Remplacez par la largeur réelle de votre image en pixels
-                  height={500}
-                  priority
-                  className="responsive-image rounded-md"
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/1/8.jpeg"
+                  alt="Photo Maison Villa Cosita - Gruissan"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -81,7 +131,7 @@ export default function Home() {
           </p>
           <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
-            Jacuzzi privée
+            Jacuzzi privé
           </div>
         </div>
         <div className=" w-1/2">
@@ -89,8 +139,68 @@ export default function Home() {
             <CarouselContent>
               <CarouselItem>
                 <Image
-                  src="/IMG_2094.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/2/1 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/2 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/3 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/4 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/5 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/6 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/2/7 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -99,18 +209,8 @@ export default function Home() {
               </CarouselItem>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
-                  width={800} // Remplacez par la largeur réelle de votre image en pixels
-                  height={500}
-                  priority
-                  className="responsive-image rounded-md"
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/2/8 - Moyenne.jpeg"
+                  alt="Photo Maison La forêt - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -139,8 +239,68 @@ export default function Home() {
             <CarouselContent>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/3/1 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/2 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/3 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/4 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/5 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/6 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/3/7 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -149,18 +309,8 @@ export default function Home() {
               </CarouselItem>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
-                  width={800} // Remplacez par la largeur réelle de votre image en pixels
-                  height={500}
-                  priority
-                  className="responsive-image rounded-md"
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/3/8 - Moyenne.jpeg"
+                  alt="Photo Maison Horizon - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -172,14 +322,14 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
           <h2 className=" text-xl/none mt-4 font-semibold">
-            Maison " Villa cosita " - Gruissan
+            Maison " Horizon " - Durban Corbières
           </h2>
           <p className=" text-lg text-zinc-600">
-            4 personnes - 2 chambres - 1 Salle de bain
+            6 personnes - 3 chambres - 2 Salles de bains
           </p>
           <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
-            Jacuzzi privée
+            Piscine privée
           </div>
         </div>
         <div className=" w-1/2">
@@ -187,8 +337,68 @@ export default function Home() {
             <CarouselContent>
               <CarouselItem>
                 <Image
-                  src="/IMG_2094.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/4/1 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/2 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/3 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/4 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/5 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/6 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
+                  width={800}
+                  height={500}
+                  priority
+                  className="responsive-image rounded-md"
+                />
+              </CarouselItem>
+              <CarouselItem>
+                <Image
+                  src="/maisons/4/7 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -197,18 +407,8 @@ export default function Home() {
               </CarouselItem>
               <CarouselItem>
                 <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
-                  width={800} // Remplacez par la largeur réelle de votre image en pixels
-                  height={500}
-                  priority
-                  className="responsive-image rounded-md"
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <Image
-                  src="/IMG_2983.jpg"
-                  alt="Demeure insolite logo"
+                  src="/maisons/4/8 - Moyenne.jpeg"
+                  alt="Photo Maison La Cabane - Durban Corbières"
                   width={800} // Remplacez par la largeur réelle de votre image en pixels
                   height={500}
                   priority
@@ -220,20 +420,20 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
           <h2 className=" text-xl/none mt-4 font-semibold">
-            Maison " La forêt " - Durban Corbières
+            Maison " La cabane " - Durban Corbières
           </h2>
           <p className=" text-lg text-zinc-600">
-            6 personnes - 3 chambres - 1 Salle de bain
+            4 personnes - 2 chambres - 1 Salle de bain
           </p>
           <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
-            Piscine privée
+            Mur vitré panoramique
           </div>
         </div>
       </section>
-      <section className=" flex gap-12 max-w-custom mx-auto px-48 mt-24 flex-col">
+      <section className=" flex gap-12 max-w-custom mx-auto px-48 mt-36 flex-col">
         <h2 className=" text-5xl font-medium text-center">
-          Des maisons tout confort trés bien équipées
+          Des maisons tout confort très bien équipées
         </h2>
         <div className=" flex gap-6 ">
           <div className=" flex flex-col items-center w-1/4 gap-3">
@@ -291,21 +491,21 @@ export default function Home() {
             </div>
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <LockKeyhole size={90} strokeWidth={2} color="#584910" />
-              <p className=" text-xl text-background">sécurisé</p>
+              <p className=" text-xl text-background">Sécurisé</p>
             </div>
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <HandCoins size={90} strokeWidth={2} color="#584910" />
-              <p className=" text-xl text-background">Meilleur prix garantie</p>
+              <p className=" text-xl text-background">Meilleur prix garanti</p>
             </div>
           </div>
         </div>
       </section>
       <section
-        className=" flex max-w-custom mx-auto px-36 my-24 flex-col"
+        className=" flex max-w-custom mx-auto px-36 my-36 flex-col"
         id="contact"
       >
         <h2 className=" text-5xl font-medium text-center px-12">
-          Une question, contactez nous directement
+          Une question ? Contactez-nous directement.
         </h2>
         <div className=" flex flex-row mt-12">
           <div className=" flex flex-col w-1/2 gap-6 justify-between">
