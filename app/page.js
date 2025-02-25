@@ -29,14 +29,14 @@ export default function Home() {
   return (
     <div className="">
       <Header></Header>
-      <div className="  max-w-custom mx-auto px-48 my-36">
-        <h1 className=" text-6xl font-medium text-center">
+      <div className="  max-w-custom mx-auto px-6 md:px-48 my-12 md:my-36">
+        <h1 className=" md:text-6xl text-2xl font-semibold text-center">
           Vivez des séjours uniques en pleine nature, a deux pas de la mer
           méditerranée
         </h1>
       </div>
-      <section className=" flex gap-6 max-w-custom mx-auto px-36">
-        <div className=" w-1/2">
+      <section className="flex flex-col md:flex-row gap-6 max-w-custom mx-auto px-6 md:px-36 md:my-36">
+        <div className="w-full md:w-1/2">
           <Carousel>
             <CarouselContent>
               <CarouselItem>
@@ -123,18 +123,18 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <h2 className=" text-xl/none mt-4 font-semibold">
+          <h2 className=" md:text-xl/none mt-4 font-semibold">
             Maison " Villa cosita " - Gruissan
           </h2>
-          <p className=" text-lg text-zinc-600">
+          <p className=" md:text-lg text-zinc-600">
             4 personnes - 2 chambres - 1 Salle de bain
           </p>
-          <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
+          <div className=" flex md:text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
             Jacuzzi privé
           </div>
         </div>
-        <div className=" w-1/2">
+        <div className="w-full md:w-1/2">
           <Carousel>
             <CarouselContent>
               <CarouselItem>
@@ -221,20 +221,20 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <h2 className=" text-xl/none mt-4 font-semibold">
+          <h2 className=" md:text-xl/none mt-4 font-semibold">
             Maison " La forêt " - Durban Corbières
           </h2>
-          <p className=" text-lg text-zinc-600">
+          <p className=" md:text-lg text-zinc-600">
             6 personnes - 3 chambres - 1 Salle de bain
           </p>
-          <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
+          <div className=" flex md:text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
             Piscine privée
           </div>
         </div>
       </section>
-      <section className=" flex gap-6 max-w-custom mx-auto px-36 mt-6">
-        <div className=" w-1/2">
+      <section className=" flex flex-col md:flex-row gap-6 max-w-custom mx-auto px-6 md:px-36 mt-6">
+        <div className="w-full md:w-1/2">
           <Carousel>
             <CarouselContent>
               <CarouselItem>
@@ -321,18 +321,18 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <h2 className=" text-xl/none mt-4 font-semibold">
+          <h2 className=" md:text-xl/none mt-4 font-semibold">
             Maison " Horizon " - Durban Corbières
           </h2>
-          <p className=" text-lg text-zinc-600">
+          <p className=" md:text-lg text-zinc-600">
             6 personnes - 3 chambres - 2 Salles de bains
           </p>
-          <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
+          <div className=" flex md:text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
             Piscine privée
           </div>
         </div>
-        <div className=" w-1/2">
+        <div className="w-full md:w-1/2">
           <Carousel>
             <CarouselContent>
               <CarouselItem>
@@ -419,38 +419,40 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <h2 className=" text-xl/none mt-4 font-semibold">
+          <h2 className=" md:text-xl/none mt-4 font-semibold">
             Maison " La cabane " - Durban Corbières
           </h2>
-          <p className=" text-lg text-zinc-600">
+          <p className=" md:text-lg text-zinc-600">
             4 personnes - 2 chambres - 1 Salle de bain
           </p>
-          <div className=" flex text-lg/none items-center gap-1 text-zinc-600">
+          <div className=" flex md:text-lg/none items-center gap-1 text-zinc-600">
             <Sparkles size={18} strokeWidth={2} />
             Mur vitré panoramique
           </div>
         </div>
       </section>
-      <section className=" flex gap-12 max-w-custom mx-auto px-48 mt-36 flex-col">
-        <h2 className=" text-5xl font-medium text-center">
+      <section className=" flex gap-12 max-w-custom mx-auto px-6 md:px-48 mt-12 md:mt-36 flex-col">
+        <h2 className=" text-xl md:text-5xl font-medium text-center">
           Des maisons tout confort très bien équipées
         </h2>
-        <div className=" flex gap-6 ">
+        <div className=" flex flex-col md:flex-row items-center gap-6 ">
           <div className=" flex flex-col items-center w-1/4 gap-3">
             <DoorOpen size={90} strokeWidth={2} />
-            <p className=" text-xl"> Arrivée autonome</p>
+            <p className=" md:text-xl text-center"> Arrivée autonome</p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
             <HouseWifi size={90} strokeWidth={2} />
-            <p className=" text-xl">Wifi rapide</p>
+            <p className=" md:text-xl text-center"> Wifi rapide</p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
             <BedDouble size={90} strokeWidth={2} />
-            <p className=" text-xl">Draps et serviettes fournis</p>
+            <p className=" md:text-xl text-center">
+              Draps et serviettes fournis
+            </p>
           </div>
           <div className=" flex flex-col items-center w-1/4 gap-3">
             <FlameKindling size={90} strokeWidth={2} />
-            <p className=" text-xl">Barbecue ou plancha</p>
+            <p className=" md:text-xl text-center"> Barbecue ou plancha</p>
           </div>
         </div>
         <p>
@@ -475,9 +477,12 @@ export default function Home() {
           <br></br> Bienvenue chez nous, bienvenue chez vous.
         </p>
       </section>
-      <section className="max-w-custom mx-auto px-36 mt-24" id="contact-form">
-        <div className=" bg-stone-100 p-12 rounded-md">
-          <h2 className=" text-5xl font-medium text-center ">
+      <section
+        className="max-w-custom mx-auto md:px-36 mt-12 md:mt-24"
+        id="contact-form"
+      >
+        <div className=" bg-stone-100 p-6 md:p-12 rounded-md">
+          <h2 className=" text-xl md:text-5xl font-medium text-center ">
             Réserver ici, sans intermédiaire, sans comission et au&nbsp;
             <span className=" text-foreground font-bold">
               meilleur prix garantie
@@ -487,30 +492,37 @@ export default function Home() {
           <div className=" flex gap-6 mt-6">
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <CreditCard size={90} strokeWidth={2} color="#584910" />
-              <p className=" text-xl text-background"> Paiement par carte</p>
+              <p className=" md:text-xl text-background text-center">
+                {' '}
+                Paiement par carte
+              </p>
             </div>
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <LockKeyhole size={90} strokeWidth={2} color="#584910" />
-              <p className=" text-xl text-background">Sécurisé</p>
+              <p className=" md:text-xl text-background text-center">
+                Sécurisé
+              </p>
             </div>
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <HandCoins size={90} strokeWidth={2} color="#584910" />
-              <p className=" text-xl text-background">Meilleur prix garanti</p>
+              <p className=" md:text-xl text-background text-center">
+                Meilleur prix garanti
+              </p>
             </div>
           </div>
         </div>
       </section>
       <section
-        className=" flex max-w-custom mx-auto px-36 my-36 flex-col"
+        className=" flex max-w-custom mx-auto px-6 md:px-36 my-12 md:my-36 flex-col"
         id="contact"
       >
-        <h2 className=" text-5xl font-medium text-center px-12">
+        <h2 className=" text-xl md:text-5xl font-medium text-center px-12">
           Une question ? Contactez-nous directement.
         </h2>
-        <div className=" flex flex-row mt-12">
-          <div className=" flex flex-col w-1/2 gap-6 justify-between">
+        <div className=" flex flex-col md:flex-row mt-12 gap-6 md:gap-0">
+          <div className=" flex flex-col md:w-1/2 gap-6 justify-between">
             <a aria-label="Chat on WhatsApp" href="https://wa.me/33646282025">
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="w-full md:w-auto">
                 <img
                   alt="Chat on WhatsApp"
                   width={30} // Remplacez par la largeur réelle de votre image en pixels
@@ -520,14 +532,14 @@ export default function Home() {
                 Chat sur WhatsApp
               </Button>{' '}
             </a>
-            <div className=" flex flex-row text-lg font-medium gap-3 items-center">
+            <div className=" flex flex-row md:text-lg font-medium gap-3 items-center">
               <Phone size={32} strokeWidth={2} />+ 33 6 46 28 20 25
             </div>
-            <div className=" flex flex-row text-lg font-medium gap-3 items-center">
+            <div className=" flex flex-row md:text-lg font-medium gap-3 items-center">
               <MapPinHouse size={32} strokeWidth={2} />
               30 avenue de Narbonne - 11360 Durban-Corbières
             </div>
-            <div className=" flex flex-row text-lg font-medium gap-3 items-center">
+            <div className=" flex flex-row md:text-lg font-medium gap-3 items-center">
               <Mail size={32} strokeWidth={2} />
               demeureinsolite@gmail.com
             </div>
@@ -535,7 +547,7 @@ export default function Home() {
           <iframe
             width="100%"
             height="300px"
-            className=" rounded-md w-1/2"
+            className=" rounded-md md:w-1/2"
             src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_1181187?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=false&editMode=disabled&moreControl=false&searchControl=false&tilelayersControl=false&embedControl=false&datalayersControl=false&onLoadPanel=none&captionBar=false&captionMenus=false&fullscreenControl=false&captionControl=false&locateControl=false&measureControl=false&editinosmControl=false&starControl=false"
           ></iframe>
         </div>

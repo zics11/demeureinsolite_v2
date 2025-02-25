@@ -4,9 +4,9 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <div className=" flex flex-row  max-w-custom mx-auto justify-center  ">
-      <div className=" flex flex-row py-5  mx-12  justify-between border-t-2 w-full ">
-        <div className=" flex items-center gap-12">
-          <p>© Demeure insolite - Toutes reproduction interdite</p>
+      <div className=" flex flex-col md:flex-row py-5 px-6 md:px-0  md:mx-12  justify-between border-t-2 w-full md:gap-0 gap-6 items-center ">
+        <div className=" flex flex-col md:flex-row items-center gap-6 md:gap-12">
+          <p className=" text-center md:text-left">© Demeure insolite</p>
           <Link href="/mentions-legales">
             <p>Mentions légales</p>
           </Link>

@@ -121,9 +121,9 @@ const Formulaire = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-12">
-      <div className=" flex flex-row gap-3">
-        <div className=" flex flex-col gap-3 w-1/2">
+    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-6 md:my-12">
+      <div className=" flex flex-col md:flex-row gap-3">
+        <div className=" flex flex-col gap-3 md:w-1/2">
           <div className="flex gap-3 ">
             <DatePickerA
               name="arrivalDate"
@@ -230,7 +230,7 @@ const Formulaire = () => {
             aria-label="Animaux"
           />
         </div>
-        <div className=" flex flex-col mt-0 w-1/2 gap-3">
+        <div className=" flex flex-col mt-0 h-64 md:h-auto md:w-1/2 gap-3">
           <Textarea
             name="message"
             placeholder="Message"
@@ -240,8 +240,8 @@ const Formulaire = () => {
           />
         </div>
       </div>
-      <div className=" flex flex-row gap-3 items-center">
-        <Button type="submit" size="m" className=" w-1/2">
+      <div className=" flex flex-col md:flex-row gap-3 items-center md:mb-0 mb-6">
+        <Button type="submit" size="m" className="w-full md:w-1/2">
           Demande de réservation
         </Button>
         <p
