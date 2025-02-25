@@ -35,7 +35,7 @@ export default function Home() {
           méditerranée
         </h1>
       </div>
-      <section className="flex flex-col md:flex-row gap-6 max-w-custom mx-auto px-6 md:px-36 md:my-36">
+      <section className="flex flex-col md:flex-row gap-6 max-w-custom mx-auto px-6 md:px-36 md:mt-36">
         <div className="w-full md:w-1/2">
           <Carousel>
             <CarouselContent>
@@ -517,7 +517,7 @@ export default function Home() {
         id="contact"
       >
         <h2 className=" text-xl md:text-5xl font-medium text-center px-12">
-          Une question ? Contactez-nous directement.
+          Une question ? Contactez-nous directement
         </h2>
         <div className=" flex flex-col md:flex-row mt-12 gap-6 md:gap-0">
           <div className=" flex flex-col md:w-1/2 gap-6 justify-between">
