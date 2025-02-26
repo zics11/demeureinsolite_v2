@@ -46,6 +46,7 @@ export async function POST(request) {
   <p>Téléphone: ${formData.phone}</p>
   <p>Nombre d'adultes: ${formData.numberOfPeople}</p>
   <p>Nombre d'enfants: ${formData.numberOfChildren}</p>
+  <p>Nombre de bébé: ${formData.numberOfBebe}</p>
   <p>Animaux: ${formData.pets}</p>
   <p>Message: ${formData.message}</p>`,
   };

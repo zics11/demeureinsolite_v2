@@ -105,6 +105,7 @@ const Formulaire = () => {
           phone: '',
           numberOfPeople: '',
           numberOfChildren: '',
+          numberOfBebe: '',
           pets: '',
           message: '',
         }); // Réinitialisation du formulaire
@@ -121,7 +122,10 @@ const Formulaire = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" flex flex-col gap-3 my-6 md:my-12">
+    <form
+      onSubmit={handleSubmit}
+      className=" flex flex-col gap-3 my-6 md:my-12"
+    >
       <div className=" flex flex-col md:flex-row gap-3">
         <div className=" flex flex-col gap-3 md:w-1/2">
           <div className="flex gap-3 ">
@@ -152,8 +156,18 @@ const Formulaire = () => {
               </span>
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="house1">Maison 1</SelectItem>
-              <SelectItem value="house2">Maison 2</SelectItem>
+              <SelectItem value="Villa cosita - Gruissan">
+                Villa cosita - Gruissan
+              </SelectItem>
+              <SelectItem value="La forêt - Durban-Corbières">
+                La forêt - Durban-Corbières
+              </SelectItem>
+              <SelectItem value="Horizon - Durban-Corbières">
+                Horizon - Durban-Corbières
+              </SelectItem>
+              <SelectItem value="La cabane - Durban-Corbières">
+                La cabane - Durban-Corbières
+              </SelectItem>
             </SelectContent>
           </Select>
 

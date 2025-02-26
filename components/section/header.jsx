@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="flex flex-col md:flex-row max-w-custom mx-auto justify-between w-full">
       <div
-        className="flex flex-col md:flex-row py-5 px-6 md md:mx-12 md:gap-0 gap-4 justify-between items-center border-b-2 w-full"
+        className="flex flex-col md:flex-row py-5 px-6 md:px-0 md:mx-12 md:gap-0 gap-4 justify-between items-center border-b-2 w-full"
         role="navigation"
         aria-label="Menu principal"
       >
