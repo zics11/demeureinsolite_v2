@@ -124,10 +124,10 @@ const Formulaire = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" flex flex-col gap-3 my-6 md:my-12"
+      className=" flex flex-col gap-3 my-6 lg:my-12"
     >
-      <div className=" flex flex-col md:flex-row gap-3">
-        <div className=" flex flex-col gap-3 md:w-1/2">
+      <div className=" flex flex-col lg:flex-row gap-3">
+        <div className=" flex flex-col gap-3 lg:w-1/2">
           <div className="flex gap-3 ">
             <DatePickerA
               name="arrivalDate"
@@ -244,7 +244,7 @@ const Formulaire = () => {
             aria-label="Animaux"
           />
         </div>
-        <div className=" flex flex-col mt-0 h-64 md:h-auto md:w-1/2 gap-3">
+        <div className=" flex flex-col mt-0 h-64 lg:h-auto lg:w-1/2 gap-3">
           <Textarea
             name="message"
             placeholder="Message"
@@ -254,12 +254,12 @@ const Formulaire = () => {
           />
         </div>
       </div>
-      <div className=" flex flex-col md:flex-row gap-3 items-center md:mb-0 mb-6">
-        <Button type="submit" size="m" className="w-full md:w-1/2">
+      <div className=" flex flex-col lg:flex-row gap-3 items-center lg:mb-0 mb-6">
+        <Button type="submit" size="m" className="w-full lg:w-1/2">
           Demande de réservation
         </Button>
         <p
-          className={`text-base font-semibold md:w-1/2 text-center 
+          className={`text-base font-semibold lg:w-1/2 text-center 
   ${errorMessage ? 'text-red-500' : successMessage ? 'text-green-500' : 'text-gray-500'}`}
         >
           {errorMessage || successMessage || ''}

@@ -5,7 +5,7 @@ export default function MentionsLegales() {
   return (
     <main className="">
       <Header></Header>
-      <div className="  max-w-custom mx-auto md:px-48 px-6 md:my-24 my-12">
+      <div className="  max-w-custom mx-auto lg:px-48 px-6 lg:my-24 my-12">
         <h1 className="text-3xl font-bold mb-4">Mentions Légales</h1>
 
         <h2 className="text-2xl font-semibold mt-6">1. Éditeur du site</h2>
