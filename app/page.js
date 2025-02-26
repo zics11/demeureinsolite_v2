@@ -431,7 +431,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" flex gap-12 max-w-custom mx-auto px-6 md:px-48 mt-12 md:mt-36 flex-col">
+      <section className=" flex gap-6 md:gap-12 max-w-custom mx-auto px-6 md:px-48 mt-12 md:mt-36 flex-col">
         <h2 className=" text-xl md:text-5xl font-medium text-center">
           Des maisons tout confort très bien équipées
         </h2>
@@ -516,10 +516,10 @@ export default function Home() {
         className=" flex max-w-custom mx-auto px-6 md:px-36 my-12 md:my-36 flex-col"
         id="contact"
       >
-        <h2 className=" text-xl md:text-5xl font-medium text-center px-12">
+        <h2 className=" text-xl md:text-5xl font-medium text-center md:px-12">
           Une question ? Contactez-nous directement
         </h2>
-        <div className=" flex flex-col md:flex-row mt-12 gap-6 md:gap-0">
+        <div className=" flex flex-col md:flex-row md:mt-12 mt-6 gap-6 md:gap-0">
           <div className=" flex flex-col md:w-1/2 gap-6 justify-between">
             <a aria-label="Chat on WhatsApp" href="https://wa.me/33646282025">
               <Button variant="outline" size="lg" className="w-full md:w-auto">

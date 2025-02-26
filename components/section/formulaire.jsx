@@ -259,7 +259,7 @@ const Formulaire = () => {
           Demande de réservation
         </Button>
         <p
-          className={`text-base font-semibold w-1/2 text-center 
+          className={`text-base font-semibold md:w-1/2 text-center 
   ${errorMessage ? 'text-red-500' : successMessage ? 'text-green-500' : 'text-gray-500'}`}
         >
           {errorMessage || successMessage || ''}
