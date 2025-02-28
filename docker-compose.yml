@@ -11,13 +11,3 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=production
-    # For better production deployments, consider adding:
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-    # Optional volume for persistent data if needed
-    # volumes:
-    #   - ./public:/app/public 
