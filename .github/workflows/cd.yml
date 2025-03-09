@@ -36,5 +36,5 @@ jobs:
 
       - name: Update demeureinsolite.fr
         run: |
-          tsh ssh root@pve "pct exec 104 bash -- -c 'cd /root/demeureinsolite.fr/ && git pull && export VERSION_APP=${{ github.ref_name }} && docker compose down --remove-orphans && docker compose up -d --build'"
+          tsh ssh root@pve "pct exec 104 bash -- -c 'cd /root/demeureinsolite_v2/ && git pull && export VERSION_APP=${{ github.ref_name }} && docker compose down --remove-orphans && docker compose up -d --build'"
 
