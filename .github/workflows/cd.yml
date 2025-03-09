@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Node.js CD
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on tag creation with tags starting with 'v'
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  deploy:
+    permissions:
+      id-token: write
+      contents: read
+    name: Deploy demeureinsolite.fr
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch Teleport binaries
+        uses: teleport-actions/setup@v1
+        with:
+          version: 17.2.1
+
+      - name: Fetch credentials using Machine ID
+        id: auth
+        uses: teleport-actions/auth@v2
+        with:
+          proxy: tlp.frankberge.fr:443
+          token: example-bot
+          certificate-ttl: 1h
+          anonymous-telemetry: 1
+
+      - name: Update demeureinsolite.fr
+        run: |
+          tsh ssh root@pve "pct exec 104 bash -- -c 'cd /root/demeureinsolite.fr/ && git pull && export VERSION_APP=${{ github.ref_name }} && docker compose down --remove-orphans && docker compose up -d --build'"
+
