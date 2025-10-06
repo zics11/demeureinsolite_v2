@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/section/header';
 import Footer from '@/components/section/footer';
 
@@ -133,6 +134,9 @@ export default function Home() {
             <Sparkles size={18} strokeWidth={2} />
             Jacuzzi privé
           </div>
+          <Link href="/listings/villa-cosita" className="mt-4 inline-flex">
+            <Button size="sm">Voir & réserver</Button>
+          </Link>
         </div>
         <div className="w-full lg:w-1/2">
           <Carousel>
@@ -231,6 +235,9 @@ export default function Home() {
             <Sparkles size={18} strokeWidth={2} />
             Piscine privée
           </div>
+          <Link href="/listings/la-foret" className="mt-4 inline-flex">
+            <Button size="sm">Voir & réserver</Button>
+          </Link>
         </div>
       </section>
       <section className=" flex flex-col lg:flex-row gap-6 max-w-custom mx-auto px-6 lg:px-36 mt-6">

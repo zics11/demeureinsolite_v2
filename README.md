@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Demeure Insolite – Système de réservation
 
-## Getting Started
+Cette branche ajoute un back-office complet et un tunnel de réservation pour les annonces "Villa Cosita" et "La Forêt".
 
-First, run the development server:
+## Prérequis
+
+- Node.js 18 (≥18.16). Prisma 5.x est installé pour rester compatible.
+- SQLite (inclus par défaut, aucune installation supplémentaire nécessaire).
+
+## Installation
 
 ```bash
+npm install
+npm run prisma:migrate   # applique le schéma Prisma sur prisma/dev.db
+npx prisma db seed       # injecte deux annonces avec données de démo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Les migrations et le fichier `prisma/dev.db` sont versionnés pour l’environnement de développement. Pour repartir d’une base propre :
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npx prisma migrate reset --force
+npx prisma db seed
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variables d’environnement
 
-## Learn More
+Ajouter au besoin :
 
-To learn more about Next.js, take a look at the following resources:
+```
+DATABASE_URL="file:./dev.db"             # déjà présent dans .env et .env.local
+MAILGUN_API_KEY=…                         # existant
+MAILGUN_DOMAIN=…                          # existant
+ADMIN_API_KEY=…                           # optionnel, protège les API admin
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Lorsque `ADMIN_API_KEY` est défini, les requêtes vers `/api/admin/*` doivent fournir l’en-tête `x-admin-key` correspondant. Le back-office intégré fonctionne côté serveur et n’expose pas cette clé.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Back-office
 
-## Deploy on Vercel
+- Emplacement : [`/admin`](http://localhost:3000/admin)
+- Fonctionnalités :
+  - Edition des informations d’annonce (tarif de base, frais de ménage, description).
+  - Ajout/suppression de tarifs journaliers spécifiques.
+  - Blocage/déblocage de plages de dates.
+  - Création, mise à jour (statut) et suppression de réservations.
+  - Rafraîchissement des données depuis Prisma.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Les actions s’appuient sur `app/admin/actions.js` (server actions) et réutilisent la logique centralisée dans `lib/booking.js` pour vérifier disponibilités, calculer les montants et prévenir les conflits.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Côté visiteur
+
+- Nouvelles pages par annonce : `/listings/villa-cosita` et `/listings/la-foret`.
+- Widget de réservation :
+  - Sélection de plage de dates via calendrier (dates passées, réservées ou bloquées désactivées).
+  - Affichage du prix total (tarifs journaliers + ménage) en temps réel.
+  - Formulaire de demande : nom, email, téléphone, occupants, message.
+  - Appel à `POST /api/listings/[slug]/reservations` pour enregistrer la demande (statut `PENDING`).
+
+La page d’accueil contient un bouton "Voir & réserver" qui redirige vers chaque fiche.
+
+## API
+
+Principaux points d’entrée :
+
+- Public :
+  - `GET /api/listings` – liste des annonces.
+  - `GET /api/listings/[slug]/availability?start=YYYY-MM-DD&end=YYYY-MM-DD` – disponibilité/journalier.
+  - `GET /api/listings/[slug]/quote?start=…&end=…` – vérifie la disponibilité et calcule le tarif.
+  - `POST /api/listings/[slug]/reservations` – crée une réservation (statut `PENDING`).
+- Admin (protégés facultativement par `ADMIN_API_KEY`) : CRUD complet sur annonces, tarifs, réservations et plages bloquées via `/api/admin/...`.
+
+Les réponses et erreurs sont uniformisées avec `lib/api-utils.js` (statuts HTTP cohérents, payload JSON).
+
+## Données de démo
+
+`prisma/seed.js` crée :
+
+- Deux annonces (`villa-cosita`, `la-foret`).
+- Une réservation confirmée (mois prochain), une plage bloquée (dans 2 semaines) et quelques tarifs majorés (saison haute).
+
+Cela permet de tester le calendrier et la gestion admin immédiatement après le seed.
+
+## Tests & lint
+
+ESLint 9.x requiert Node ≥18.18 ; avec Node 18.16, `npm run lint` peut émettre un warning "Unsupported engine". Mettre à jour Node si besoin pour profiter du linting complet.

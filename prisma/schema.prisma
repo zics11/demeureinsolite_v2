@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id               String            @id @default(cuid())
+  slug             String            @unique
+  title            String
+  subtitle         String?
+  description      String?
+  baseRateCents    Int
+  cleaningFeeCents Int               @default(0)
+  maxGuests        Int               @default(1)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  reservations     Reservation[]
+  rateOverrides    RateOverride[]
+  blackoutRanges   BlackoutRange[]
+}
+
+model Reservation {
+  id                String             @id @default(cuid())
+  listingId         String
+  listing           Listing            @relation(fields: [listingId], references: [id])
+  status            String             @default("PENDING")
+  startDate         DateTime
+  endDate           DateTime
+  nights            Int
+  totalAmountCents  Int
+  guestName         String
+  guestEmail        String
+  guestPhone        String?
+  adults            Int                @default(1)
+  children          Int                @default(0)
+  notes             String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  @@index([listingId, startDate, endDate])
+}
+
+model RateOverride {
+  id             String   @id @default(cuid())
+  listingId      String
+  listing        Listing  @relation(fields: [listingId], references: [id])
+  date           DateTime
+  priceCents     Int
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([listingId, date])
+  @@index([date])
+}
+
+model BlackoutRange {
+  id          String   @id @default(cuid())
+  listingId   String
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  startDate   DateTime
+  endDate     DateTime
+  reason      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([listingId, startDate, endDate])
+  @@unique([listingId, startDate, endDate])
+}
