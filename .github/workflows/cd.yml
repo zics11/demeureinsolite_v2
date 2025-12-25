@@ -4,10 +4,13 @@ name: Node.js CD
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on tag creation with tags starting with 'v'
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+
+# Expose runtime secrets to all jobs through env
+env:
+  DOT_ENV: ${{ secrets.DOT_ENV }}
 
 jobs:
   deploy:
@@ -35,6 +38,14 @@ jobs:
           anonymous-telemetry: 1
 
       - name: Update demeureinsolite.fr
+        env:
+          VERSION_TAG: ${{ github.ref_name }}
         run: |
-          tsh ssh root@pve "pct exec 104 bash -- -c 'cd /root/demeureinsolite_v2/ && git pull && export VERSION_APP=${{ github.ref_name }} && docker compose down --remove-orphans && docker compose up -d --build'"
-
+          tsh ssh root@pve "pct exec 104 bash -- -c '
+            cd /root/demeureinsolite_v2/ &&
+            git pull &&
+            printf \"%s\" \"${DOT_ENV}\" > .env.production &&
+            export VERSION_APP=${VERSION_TAG} &&
+            docker compose down --remove-orphans &&
+            docker compose up -d --build
+          '"
