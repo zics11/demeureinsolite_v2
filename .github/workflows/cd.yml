@@ -44,7 +44,11 @@ jobs:
           tsh ssh root@pve "pct exec 104 bash -- -c '
             cd /root/demeureinsolite_v2/ &&
             git pull &&
-            printf \"%s\" \"${DOT_ENV}\" > .env.production &&
+            if [ -z \"${DOT_ENV}\" ]; then
+              echo \"DOT_ENV secret is missing\" >&2
+              exit 1
+            fi &&
+            printf \"%s\n\" \"${DOT_ENV}\" > .env.production &&
             export VERSION_APP=${VERSION_TAG} &&
             docker compose down --remove-orphans &&
             docker compose up -d --build
