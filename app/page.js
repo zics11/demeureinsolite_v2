@@ -488,7 +488,8 @@ export default function Home() {
               meilleur prix garanti
             </span>
           </h2>
-          <Formulaire></Formulaire>
+          <br></br>
+          {/* <Formulaire></Formulaire> */}
           <div className=" flex gap-6 mt-6">
             <div className=" flex flex-col items-center w-1/3 gap-3">
               <CreditCard size={90} strokeWidth={2} color="#584910" />
@@ -516,7 +517,7 @@ export default function Home() {
         className=" flex max-w-custom mx-auto px-6 lg:px-36 my-12 lg:my-36 flex-col"
         id="contact"
       >
-        <h2 className=" text-xl lg:text-5xl font-medium text-center lg:px-12">
+        <h2 className=" text-xl lg:text-5xl font-medium text-center lg:px-12 pb-6">
           Une question ? Contactez-nous directement
         </h2>
         <div className=" flex flex-col lg:flex-row lg:mt-12 mt-6 gap-6 lg:gap-0">

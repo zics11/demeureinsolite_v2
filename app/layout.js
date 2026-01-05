@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import FilloutPopup from '@/components/FilloutPopup';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -55,12 +56,14 @@ export default function RootLayout({ children }) {
           content="Séjour unique en Occitanie avec nos hébergements. Profitez de la nature et de la gastronomie locale."
         />
         <meta name="twitter:image" content="URL_DE_VOTRE_IMAGE" />
+        
         <link rel="canonical" href="https://www.demeureinsolite.fr" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <FilloutPopup />
       </body>
     </html>
   );
