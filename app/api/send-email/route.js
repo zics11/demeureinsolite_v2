@@ -1,24 +1,28 @@
 // app/api/send-email/route.js
 
 import { NextResponse } from 'next/server';
-import formData from 'form-data';
+import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
 
-const mailgun = new Mailgun(formData);
-
-const mg = mailgun.client({
-  username: 'api',
-  key: process.env.MAILGUN_API_KEY,
-});
+// Always run on the server at request time; never evaluated/prerendered at build.
+export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
   const { formData } = await request.json();
 
-  console.log('🔍 Données reçues:', formData); // Ajout du log
+  console.log('🔍 Données reçues:', formData);
+
+  // Lazily instantiate the Mailgun client at request time so the build does
+  // not require MAILGUN_API_KEY (secrets are injected at runtime, not baked).
+  const mailgun = new Mailgun(FormData);
+  const mg = mailgun.client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY,
+  });
 
   const emailData = {
-    from: 'demeureinsolite.fr <mailgun@sandbox1c6bb2f9e7da41cc9b7bb8f1b9f75fba.mailgun.org>', // Change this to your Mailgun verified email
-    to: ['demeureinsolite@gmail.com'], // Destination email
+    from: 'demeureinsolite.fr <mailgun@sandbox1c6bb2f9e7da41cc9b7bb8f1b9f75fba.mailgun.org>',
+    to: ['demeureinsolite@gmail.com'],
     subject: '✅ Nouvelle demande depuis demeureinsolite.fr',
     text: `
     Date d'arrivée: ${formData.arrivalDate}
@@ -53,7 +57,7 @@ export async function POST(request) {
 
   try {
     const msg = await mg.messages.create(process.env.MAILGUN_DOMAIN, emailData);
-    console.log(msg); // logs response data
+    console.log(msg);
     return NextResponse.json(
       { message: 'Email envoyé avec succès' },
       { status: 200 },
