@@ -1,11 +1,13 @@
 services:
   demeureinsolite_web:
-    build:
-      context: ./
-      dockerfile: docker/Dockerfile
-    container_name: 'demeureinsolite_web'
+    image: ghcr.io/zics11/demeureinsolite_v2:latest
+    container_name: demeureinsolite_web
     restart: always
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=production
+    env_file:
+      - .env.production
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'

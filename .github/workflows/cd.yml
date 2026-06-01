@@ -1,55 +1,45 @@
-# This is a basic workflow to help you get started with Actions
+name: Build & Publish (demeureinsolite)
 
-name: Node.js CD
-
-# Controls when the action will run.
 on:
   push:
-    branches:
-      - main
-
-# Expose runtime secrets to all jobs through env
-env:
-  DOT_ENV: ${{ secrets.DOT_ENV }}
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  deploy:
-    permissions:
-      id-token: write
-      contents: read
-    name: Deploy demeureinsolite.fr
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Fetch Teleport binaries
-        uses: teleport-actions/setup@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
         with:
-          version: 17.2.1
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Fetch credentials using Machine ID
-        id: auth
-        uses: teleport-actions/auth@v2
+      - name: Trivy dependency scan (gate)
+        uses: aquasecurity/trivy-action@master
         with:
-          proxy: tlp.frankberge.fr:443
-          token: example-bot
-          certificate-ttl: 1h
-          anonymous-telemetry: 1
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          exit-code: '1'
+          ignore-unfixed: true
 
-      - name: Update demeureinsolite.fr
-        env:
-          VERSION_TAG: ${{ github.ref_name }}
-        run: |
-          tsh ssh root@pve "pct exec 104 bash -- -c '
-            cd /root/demeureinsolite_v2/ &&
-            git pull &&
-            if [ -z \"${DOT_ENV}\" ]; then
-              echo \"DOT_ENV secret is missing\" >&2
-              exit 1
-            fi &&
-            printf \"%s\n\" \"${DOT_ENV}\" > .env.production &&
-            export VERSION_APP=${VERSION_TAG} &&
-            docker compose down --remove-orphans &&
-            docker compose up -d --build
-          '"
+      - name: Build & push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/zics11/demeureinsolite_v2:latest
+            ghcr.io/zics11/demeureinsolite_v2:${{ github.sha }}
