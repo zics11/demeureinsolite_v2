@@ -10,6 +10,9 @@ export default function Footer() {
           <Link href="/mentions-legales">
             <p>Mentions légales</p>
           </Link>
+          <Link href="/conditions-vente">
+            <p>Conditions Generales Vente</p>
+          </Link>
         </div>
 
         <div className=" flex items-center gap-6 font-bold">
