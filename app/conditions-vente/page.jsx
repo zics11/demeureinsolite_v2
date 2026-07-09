@@ -112,10 +112,9 @@ export default function ConditionsGeneralesVente() {
 
         <h2 className="text-2xl font-semibold mt-6">5. Dépôt de garantie</h2>
         <p>
-          Une empreinte bancaire de 300 € est prélevée à titre de dépôt de
-          garantie. Elle couvre les dommages, dégradations, pertes de clés ou
-          d’objets constatés dans le logement ou le mobilier, imputables au
-          Preneur.
+          Une empreinte bancaire est prélevée à titre de dépôt de garantie. Elle
+          couvre les dommages, dégradations, pertes de clés ou d’objets
+          constatés dans le logement ou le mobilier, imputables au Preneur.
         </p>
         <p>
           Un état des lieux est réalisé à l’entrée et à la sortie. L’empreinte
@@ -237,11 +236,7 @@ export default function ConditionsGeneralesVente() {
         </h2>
         <p>
           Le Bailleur déclare être propriétaire du logement et en avoir la libre
-          disposition et jouissance durant les périodes réservées. Sa
-          responsabilité ne saurait être engagée en cas de force majeure, de
-          fait d’un tiers, ou de circonstances exceptionnelles rendant le
-          logement indisponible, auquel cas le Preneur serait intégralement
-          remboursé des sommes versées, sans autre indemnité.
+          disposition et jouissance durant les périodes réservées.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6">
@@ -262,7 +257,6 @@ export default function ConditionsGeneralesVente() {
           . Les données de paiement sont traitées par un prestataire de paiement
           sécurisé et ne sont pas conservées par le Bailleur.
         </p>
-
 
         <h2 className="text-2xl font-semibold mt-6">
           13. Litiges et droit applicable
